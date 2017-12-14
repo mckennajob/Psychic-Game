@@ -3,16 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>Physic Games Suck</title>
-
-    <script src="assets/css/reset.css"></script>
-    <script src="assets/css/style.css"></script>
-    <script src="assets/javascript/game.js"></script>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/javascript/gametwo.js"></script>
 
   </head>
   <body>
 
+    <div id="game">
+      <p>This is the Psychic Game... Guess the letter I am thinking of!
+      You only get 9 guesses. Good Luck!</p>
+    </div>
 
+    <div id="wins">
+      <p>Wins:<span id="winCount">0</span></p>
+    </div>
 
+    <div id="losses">
+      <p>Losses:<span id="lossCount">0</span></p>
+    </div>
+
+    <div id="guessesLeft">
+      <p>Guesses left:<span id="guessCount">9</span></p>
+    </div>
+
+    <div id="letterGuesses">
+      <p>Letter Guesses:<span id="guessLetters"></span></p>
+    </div>
 
   </body>
 </html>
