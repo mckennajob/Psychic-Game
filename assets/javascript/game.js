@@ -26,13 +26,21 @@
 //user guesses
   var userGuesses = [];
 
-  console.log(userGuesses);
-
   document.onkeyup = function(event) {
     var userGuess = event.key;
     userGuesses.push(userGuess);
     var guessLetters = document.getElementById("guessLetters");
     guessLetters.textContent = userGuesses;
+
+
+    if(userGuess === letterToGuess) {
+      wins++;
+      document.querySelector("#winCount").innerHTML = wins;
+      console.log('wins', wins);
+    }
+    else {
+      updateGuessesLeft();
+    }
 
     console.log(userGuesses);
 
@@ -49,18 +57,26 @@
 // Below we created three functions to updateGuesses, updateGuessesLeft, and updateGuessesSoFar
 //GUESSES LEFT:
     var updateGuessesLeft = function() {
-      // Here we are grabbing the HTML element and setting it equal to the guessesLeft.
-      // (i.e. guessesLeft will get displayed in HTML)
-      document.querySelector("#guessesLeft").innerHTML = guessesLeft;
+      guessesLeft--;
+      document.querySelector("#guessCount").innerHTML = guessesLeft;
+
+      if(guessesLeft <= 1){
+        losses++;
+        document.querySelector("#lossCount").innerHTML = losses;
+      } else if (guessesLeft === 0) {
+        // end game
+      }
+
     };
 
 //COMPUTER GUESSES
     var updateLetterToGuesses = function() {
 
     letterToGuess = letters[Math.floor(Math.random() *  letters.length)];
-    console.log(updateLetterToGuess);
+    console.log(letterToGuess);
 
     };
+    updateLetterToGuesses();
 
 
     var updateGuessesSoFar = function() {
